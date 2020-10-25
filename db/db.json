@@ -5,5 +5,8 @@
     ],
     "comments": [
       { "id": 1, "body": "some comment", "userId": 1 }
-    ]
+    ],
+    "profile": {
+      "name": "typicode"
+    }
 }
