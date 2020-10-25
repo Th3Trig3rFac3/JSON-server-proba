@@ -10,7 +10,6 @@ function getServerData(url) {
         mode: "cors",
         cache: "no-cache"
     };
-
     return fetch(url, fetchOptions).then(
         Response => Response.json(),
         err => console.error(err)
@@ -22,7 +21,6 @@ function startGetUsers() {
         data => fillDataTable(data, "userTable")
     );
 }
-
 document.querySelector("getDateBtn").addEventListener("click", startGetUsers);
 
 // Fill Table with Server Data
@@ -46,8 +44,7 @@ function fillDataTable(data, tableID) {
             let input = createAnyElement("input", {
                 class: "form-control",
                 value: row[k],
-                name: k
-            });
+                name: k});
             if (k == "id") {
                 input.setAttribute("readonly", true);
             }
@@ -89,7 +86,6 @@ function delRow(btn) {
         mode: "cors",
         cache: "no-cache"
     };
-
     fetch(`http://localhost:3000/users/${id}`, fetchOptions).then(
         resp => resp.json(),
         err => console.error(err)
@@ -113,7 +109,6 @@ function newUserRow(row) {
         td.appendChild(input);
         tr.appendChild(td);
     }
-
     let newBtn = createAnyElement("button", {
         class: "btn btn-success",
         onclick: "createUser(this)"
@@ -138,7 +133,6 @@ function createUser() {
         },
         body: JSON.stringify(data)
     };
-
     fetch(`http://localhost:3000/users`, fetchOptions).then(
         resp => resp.json,
         err => console.error(err)
@@ -169,7 +163,6 @@ function setRow(btn) {
         },
         body: JSON.stringify(data)
     };
-
     fetch(`http://localhost:3000/users/${data.id}`, fetchOptions).then (
         resp => resp.json,
         err => console.error(err)
